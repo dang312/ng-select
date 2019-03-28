@@ -428,6 +428,11 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
     }
 
     showAddTag() {
+
+        if (!this.filterValue) {
+            return false;
+        }
+
         const term = this.filterValue.toLowerCase();
         return this.addTag &&
             !this.itemsList.filteredItems.some(x => x.label.toLowerCase() === term) &&
